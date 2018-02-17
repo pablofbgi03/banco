@@ -6,7 +6,7 @@ import java.util.List;
 import com.dawes.modelo.Cuentas;
 import com.dawes.modelo.Movimientos;
 import com.dawes.modelo.Titulares;
-
+//
 public interface CuentasDAO {
 
 public void insertCuenta (Cuentas cuenta, Titulares titular);
