@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 03-dic-2017 11:24:29 by Hibernate Tools 4.0.0.Final -->
+<hibernate-mapping>
+    <class name="paquete.Titularescuentas" table="titularescuentas" catalog="banco">
+        <id name="idTitularCuenta" type="java.lang.Integer">
+            <column name="idTitularCuenta" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="cuentas" class="paquete.Cuentas" fetch="select">
+            <column name="idCuenta" />
+        </many-to-one>
+        <many-to-one name="titulares" class="paquete.Titulares" fetch="select">
+            <column name="idTitular" />
+        </many-to-one>
+        <property name="fechaCreacion" type="date">
+            <column name="fechaCreacion" length="10" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 30-nov-2017 17:42:22 by Hibernate Tools 3.6.0.Final -->
+<hibernate-mapping>
+    <class name="paquete.Cuentas" table="cuentas" catalog="banco">
+        <id name="idCuenta" type="java.lang.Integer">
+            <column name="idCuenta" />
+            <generator class="identity" />
+        </id>
+        <property name="numCuenta" type="string">
+            <column name="numCuenta" length="20" unique="true" />
+        </property>
+        <property name="saldo" type="java.lang.Double">
+            <column name="saldo" precision="22" scale="0" />
+        </property>
+        <property name="fecha" type="date">
+            <column name="fecha" length="10" />
+        </property>
+        <set name="titularescuentases" table="titularescuentas" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idCuenta" />
+            </key>
+            <one-to-many class="paquete.Titularescuentas" />
+        </set>
+        <set name="movimientoses" table="movimientos" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idCuentas" />
+            </key>
+            <one-to-many class="paquete.Movimientos" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 30-nov-2017 17:42:22 by Hibernate Tools 3.6.0.Final -->
+<hibernate-mapping>
+    <class name="paquete.Titulares" table="titulares" catalog="banco">
+        <id name="idTitular" type="java.lang.Integer">
+            <column name="idTitular" />
+            <generator class="identity" />
+        </id>
+        <property name="nombre" type="string">
+            <column name="nombre" length="25" />
+        </property>
+        <property name="apellidos" type="string">
+            <column name="apellidos" length="45" />
+        </property>
+        <property name="direccion" type="string">
+            <column name="direccion" length="30" />
+        </property>
+        <property name="poblacion" type="string">
+            <column name="poblacion" length="30" />
+        </property>
+        <property name="nif" type="string">
+            <column name="nif" length="9" unique="true" />
+        </property>
+        <property name="fechaNacimiento" type="date">
+            <column name="fechaNacimiento" length="10" />
+        </property>
+        <property name="credito" type="java.lang.Double">
+            <column name="credito" precision="22" scale="0" />
+        </property>
+        <set name="titularescuentases" table="titularescuentas" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idTitular" />
+            </key>
+            <one-to-many class="paquete.Titularescuentas" />
+        </set>
+    </class>
+</hibernate-mapping>
