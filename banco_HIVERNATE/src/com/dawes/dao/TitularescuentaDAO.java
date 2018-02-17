@@ -1,7 +1,7 @@
 package com.dawes.dao;
 
 import com.dawes.modelo.Titularescuentas;
-
+//
 public interface TitularescuentaDAO {
 public void insertTitCta (Titularescuentas tituCuenta);
 	
